@@ -114,11 +114,18 @@ if (bio.skills.length > 0) {
 for (job in work.jobs) {
 	//console.log(work.jobs[job].employer);
 
+	// Create new <div> for work experience
 	$("#workExperience").append(HTMLworkStart);
 
 	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
+	// The :last selector selects the last element
 	$(".work-entry:last").append(formattedEmployer + formattedTitle);
 
+	var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDate);
+
+	var formattedDesc = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedDesc);
 }
